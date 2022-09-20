@@ -7,6 +7,7 @@ const Item = ({nombre,plataforma,precio,img}) => {
     <h2>{nombre}</h2>
     <h2>{plataforma}</h2>
     <h2>{precio}</h2>
+    <button>Detalles</button>
     </div>
     
   )
