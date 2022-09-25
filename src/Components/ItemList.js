@@ -12,6 +12,7 @@ const ItemList = ({juegos}) => {
         plataforma={juego.plataforma}
         precio={juego.precio}
         img={juego.img}
+        id = {juego.id}
         />
        )) : <h3>Cargando...</h3>}
     </>

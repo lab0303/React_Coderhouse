@@ -7,8 +7,10 @@ function Navbar() {
   return (
     <div className='navbar'>
         <img src={logo} alt="logo" />
-        <a href="">Juegos</a>
-        <a href="">Acerca de nosotros</a>
+        <a href="">PS5</a>
+        <a href="">XBOX</a>
+        <a href="">PC</a>
+
         <CartWidget/>
         
     </div>
