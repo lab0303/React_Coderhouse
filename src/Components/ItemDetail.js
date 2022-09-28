@@ -1,6 +1,7 @@
 import React from 'react'
 
 const ItemDetail = ({juego}) => {
+ 
   return (
     <>
     <h2 style={{color: "red"}}>Esto es desde el ItemDetail</h2>

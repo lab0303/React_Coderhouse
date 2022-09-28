@@ -9,8 +9,8 @@ const Item = ({nombre,plataforma,precio,img, id}) => {
     <h2>{nombre}</h2>
     <h2>{plataforma}</h2>
     <h2>{precio}</h2>
-    <Link to={`detalle/${id}`}>
-    <button>Detalles</button>
+    <Link to={`/detalle/${id}`}>
+    Detalles
     </Link>  
     
     </div>
