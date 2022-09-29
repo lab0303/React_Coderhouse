@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const ItemCount = ({stock, initial}) => {
+const ItemCount = ({stock, initial, agregarCarrito}) => {
     
     const [contador, setContador] = useState(initial);
 
@@ -13,18 +13,15 @@ const ItemCount = ({stock, initial}) => {
         setContador(contador - 1);
     }
 
-    function agregarCarrito(){
-        alert(`Agregaste ${contador} elemento(s) al carrito`)
-    }
   return (
     <>
     <h2>
        {contador}
     </h2>        
     <div>
-        <button disabled={(contador == stock || stock == 0)? true:false} onClick={sumar}>Aumentar</button>
-        <button disabled={(contador == initial || stock == 0)? true:false} onClick={restar}>Disminuir</button>
-        <button disabled={(stock == 0)? true:false} onClick={agregarCarrito}>Agregar al carrito</button>
+        <button disabled={(contador === stock || stock === 0)? true:false} onClick={sumar}>Aumentar</button>
+        <button disabled={(contador === initial || stock === 0)? true:false} onClick={restar}>Disminuir</button>
+        <button disabled={(stock === 0)? true:false} onClick={agregarCarrito}>Agregar al carrito</button>
     </div>
     </>
   )
