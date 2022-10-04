@@ -1,11 +1,14 @@
-import React , { useState} from 'react'
+import React , { useContext, useState} from 'react'
 import { Link } from 'react-router-dom'
 import ItemCount from './ItemCount'
+import { CartContext } from './CartContextProvider'
 
 const ItemDetail = ({juego}) => {
+  const {addItem} = useContext(CartContext)
   const [estaClick , setEstaClick] = useState(false)
-  const agregarCarrito = () =>{
+  const agregarCarrito = (count) =>{
     setEstaClick(true);
+    addItem(juego,count);
   }
  
   return (
@@ -17,7 +20,7 @@ const ItemDetail = ({juego}) => {
     <p>{juego.descripcion}</p>
     {estaClick ? <Link to= "/cart"><button>Terminar compra</button></Link> 
     :
-    <ItemCount stock={5} initial={1} agregarCarrito = {agregarCarrito}/>}
+    <ItemCount stock={5} initial={1} agregarCarrito = {agregarCarrito} juego= {juego}/>}
     </>
   )
 }
