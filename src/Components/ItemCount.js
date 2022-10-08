@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 
-const ItemCount = ({stock, initial, agregarCarrito}) => {
+const ItemCount = ({stock, initial, agregarCarrito, juego}) => {
     
     const [contador, setContador] = useState(initial);
-
+    
 
     function sumar(){
         setContador(contador + 1);

@@ -10,11 +10,11 @@ const ItemDetailContainer = () => {
             fetch("../productos.json")
             .then(res => res.json())
             .then(data => {
-              const item = data.filter(item => item.id == id);
+              const item = data.filter(item => item.id === parseInt(id));
               setJuego(item[0])
             })     
          },2000)
-    },[]);
+    },[id]);
   return (
     <>
      <ItemDetail juego={juego}/> 
