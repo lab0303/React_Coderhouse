@@ -1,19 +1,23 @@
 import React ,{ useState, useEffect} from 'react'
 import ItemDetail from './ItemDetail'
 import {useParams} from 'react-router-dom'
+import {db} from '../firebase/firebase'
+import {collection, getDoc, doc} from 'firebase/firestore'
 
 const ItemDetailContainer = () => {
     const [juego, setJuego] = useState({});
     const {id} = useParams();
-    useEffect(()=>{
-        setTimeout(()=>{
-            fetch("../productos.json")
-            .then(res => res.json())
-            .then(data => {
-              const item = data.filter(item => item.id === parseInt(id));
-              setJuego(item[0])
-            })     
-         },2000)
+    useEffect(()=>{     
+         const productCollection = collection(db,"products");
+         const refDoc = doc(productCollection,id);
+         getDoc(refDoc)
+         .then(result =>{
+          setJuego({
+            id: result.id,
+            ...result.data(),
+          })
+
+         })
     },[id]);
   return (
     <>
