@@ -1,16 +1,21 @@
-import React,{useContext} from 'react'
+import React,{useContext, useState} from 'react'
 import { CartContext } from './CartContextProvider'
 import { Link } from 'react-router-dom'
 import {db} from '../firebase/firebase'
 import {collection, addDoc, serverTimestamp} from 'firebase/firestore'
 import Swal from 'sweetalert2'
+import Formulario from './Formulario'
 
 const Cart = () => {
-  const {cart, total, removeItem, clear} = useContext(CartContext)
+  const {cart, total, removeItem, clear} = useContext(CartContext);
+  const [nombre, setNombre] = useState("");
+  const [apellido, setApellido] = useState("");
+  const [email, setEmail] = useState("");
+  
   const usuario = {
-    nombre: 'Luis',
-    apellido: 'Beltran',
-    email:'lab@hotmail.com',
+    nombre,
+    apellido,
+    email,
   }
 
   const finalizarCompra = ()=>{
@@ -26,6 +31,8 @@ const Cart = () => {
       Swal.fire(`Gracias por su compra, su numero de id es: ${res.id}`);
     })
   }
+
+
   return (
     <>
     {cart.length ? (cart.map((juego)=>(
@@ -34,16 +41,17 @@ const Cart = () => {
       <p>Precio: ${juego.item.precio}</p> 
       <p>Cantidad: {juego.quantity} </p>
       <button onClick={()=>removeItem(juego)}>Borrar juego</button>
-      
       </div>
 ))) : <h3>No hay juegos en el carrito. Ve la lista <Link to = "/">aca</Link></h3>}
     
     
     {cart.length !== 0 && 
     <>
-    <h2>Precio total: ${total}</h2>
-    <button onClick={clear}>Borrar todo</button>
-    <button onClick={finalizarCompra}>Finalizar la compra</button>
+      <h2>Precio total: ${total}</h2>
+      <Formulario setNombre={setNombre} setApellido={setApellido} setEmail={setEmail} />
+      <br/>
+      <button onClick={clear}>Borrar todo</button>
+      <button onClick={finalizarCompra}>Finalizar la compra</button>
     </>}
 
     
