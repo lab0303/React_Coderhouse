@@ -1,24 +1,29 @@
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import ItemListContainer from './Components/ItemListContainer';
-import ItemDetailContainer from './Components/ItemDetailContainer';
+import ItemListContainer from './Container/ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './Container/ItemDetailContainer/ItemDetailContainer';
 import Cart from "./Components/Cart";
 import Navbar from "./Components/Navbar";
-import CartContextProvider from './Components/CartContextProvider';
+import NotFound from "./Components/NotFound"
+import CartContextProvider from './Context/CartContextProvider';
+import {Container} from 'react-bootstrap'
 
 function App() {
   return (
     
     <BrowserRouter>
-    <CartContextProvider>
+    <Container>
+      <CartContextProvider>
       <Navbar/>
       <Routes>
         <Route path='/' element ={<ItemListContainer/>}/>
         <Route path='/plataforma/:category' element ={<ItemListContainer/>}/>
         <Route path='/detalle/:id' element ={<ItemDetailContainer/>}/> 
         <Route path='/cart' element ={<Cart/>}/> 
+        <Route path='*' element ={<NotFound/>}/>
       </Routes>
-    </CartContextProvider>
+      </CartContextProvider>
+    </Container>
     </BrowserRouter>
     
   );

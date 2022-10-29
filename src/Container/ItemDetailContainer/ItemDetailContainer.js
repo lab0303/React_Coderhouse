@@ -1,7 +1,7 @@
 import React ,{ useState, useEffect} from 'react'
 import ItemDetail from './ItemDetail'
 import {useParams} from 'react-router-dom'
-import {db} from '../firebase/firebase'
+import {db} from '../../firebase/firebase'
 import {collection, getDoc, doc} from 'firebase/firestore'
 
 const ItemDetailContainer = () => {
@@ -16,7 +16,6 @@ const ItemDetailContainer = () => {
             id: result.id,
             ...result.data(),
           })
-
          })
     },[id]);
   return (

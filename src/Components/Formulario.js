@@ -1,4 +1,5 @@
 import React from 'react'
+import {Card, Form} from 'react-bootstrap'
 
 const Formulario = ({setNombre, setEmail, setApellido}) => {
    
@@ -12,12 +13,20 @@ const Formulario = ({setNombre, setEmail, setApellido}) => {
         setEmail(e.target.value);
       }
   return (
-    <div>
-    <form>
-    <input type="text" placeholder= "Nombre" onChange={userName} />
-    <input type="text" placeholder= "Apellido" onChange={userLastname}/>
-    <input type="email" placeholder= "Email" onChange={userEmail} />
-    </form>
+    <div className='mt-5'>
+      <Card style={{ width: '40rem' }}>
+        <Card.Body>
+          <Card.Title>Formulario de compra</Card.Title>
+          <Form.Label>Nombre</Form.Label>
+          <Form.Control size="lg" type="text"  onChange={userName}/>
+          <br />
+          <Form.Label>Apellido</Form.Label>
+          <Form.Control size="lg" type="text" onChange={userLastname}/>
+          <br />
+          <Form.Label>Email address</Form.Label>
+          <Form.Control size="lg" type="text" onChange={userEmail}/>
+        </Card.Body>
+      </Card>
     </div>
   )
 }
