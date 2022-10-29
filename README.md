@@ -23,4 +23,5 @@ Para hacer correr la aplicacion
 
 ## Tecnologia utilizada
 - React
+- Bootstrap
 - Firebase
