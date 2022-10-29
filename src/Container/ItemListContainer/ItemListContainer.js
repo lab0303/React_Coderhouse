@@ -8,7 +8,6 @@ const ItemListContainer = () => {
 
   const [juegos, setJuegos] = useState([]);
   const {category} = useParams();
-  console.log(category);
   useEffect(()=>{
     const productsCollection = collection(db, "products");
     const q = query(productsCollection, where("plataforma","==",`${category}`));
