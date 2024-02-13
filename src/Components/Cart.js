@@ -57,7 +57,7 @@ const Cart = () => {
         </tr>
       </tbody>
     </Table>
-))) : <h3>No hay juegos en el carrito. Ve la lista <Link to = "/">aca</Link></h3>}
+))) : <h3>No hay juegos en el carrito. Ve la lista completa <Link to = "/">aca</Link></h3>}
     
     
     {cart.length !== 0 && 
